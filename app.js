@@ -79,3 +79,33 @@ for ( let i = 0; i< strArr.length; i ++){
 return decodedWord.join('');
 };
 console.log(decode('craft block argon meter bells brown croon droop'));
+
+const daysInMonth = function(month, leapYear) {
+    switch (month) {
+        case 'September': 
+        case 'April' :
+        case 'June' :
+        case 'November' :
+            return  `${month} has 30 days`;
+            break;
+        
+        case 'February' : if (leapYear) {return `February has 29 days`;} 
+                          else {return 'February has 28 days';}
+            break;
+        case 'January' :
+        case 'March' :
+        case 'May' :
+        case 'July' :
+        case 'August' :
+        case 'October' : 
+        case 'December' : 
+            return  `${month} has 31 days`;
+            break;
+        default: 
+            throw Error(`Invalid month`);
+    }
+}
+
+console.log(daysInMonth('January', false));
+console.log(daysInMonth('February', false));
+console.log(daysInMonth('September', false));
