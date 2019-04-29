@@ -109,3 +109,34 @@ const daysInMonth = function(month, leapYear) {
 console.log(daysInMonth('January', false));
 console.log(daysInMonth('February', false));
 console.log(daysInMonth('September', false));
+
+
+const makeChoice = function(num) {
+    if (num === 1) {
+        return 'rock'
+    } else if (num === 2) {
+        return 'paper';
+    } else if (num === 3) {
+        return 'scissors'
+    }
+}
+
+const rockPaperScissors = function(num) {
+    const randomNo = Math.floor(Math.random() * 3) + 1;
+    const rock = 1;
+    const paper = 2;
+    const scissors = 3;
+    let computersChoice = makeChoice(randomNo)
+    let myChoice = makeChoice(num);
+    if (myChoice === computersChoice) {
+        return `It's a tie!`;
+    } else if ((myChoice === 'rock' && computersChoice === 'scissors') ||
+               (myChoice === 'paper' && computersChoice === 'rock') ||
+               (myChoice === 'scissors' && computersChoice === 'paper')) {
+                   return `You won!`;
+               } else {
+                   return `You lose!`;
+               }
+}
+
+console.log(rockPaperScissors(1));
